@@ -1,5 +1,7 @@
 # pwd-kk1020-2611510002
 
-pada pertemuan ke-3, saya :
+pada pertemuan ke-3, saya mengembangkan:
 
 1. menyalin artefak pertemuan-02, sebagai baseline pertemuan-03.
+2. menguji fungsionalitas dari fitur yang sudah dikembangkan, hasilnya fitur dari pertemuan-02 bisa digunakan semua.
+3. mengganti index.html menjadi index.php, kemudian saya menguji ulang, fitur lama masih tetap berfungsi.
