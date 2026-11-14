@@ -7,4 +7,4 @@ pada pertemuan ke-2, saya :
 3. mengubah method dari get menjadi post, hasilnya saat mengirim formulir URL nya tidak berubah. sudah dikembalikan menjadi get lagi.
 4. menambahkan CSS dasar pada section#about, hasilnya sesuai dengan modul. menata formulir dengan CSS dasar, hasilnya sesuai dengan modul.
 5. melakukan pengujian struktur, pengiriman, dan tampilan, semuanya sudah sesuai.
-6. membuat file baru dengan nama style.css, untuk memisahkan CSS dari dokumen HTML.
+6. membuat file baru dengan nama style.css, untuk memisahkan CSS dari dokumen HTML. memindahkan CSS Internal dan Menghubungkan style.css dengan index.html.
