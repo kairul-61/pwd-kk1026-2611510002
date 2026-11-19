@@ -8,3 +8,4 @@ pada pertemuan ke-2, saya :
 4. menambahkan CSS dasar pada section#about, hasilnya sesuai dengan modul. menata formulir dengan CSS dasar, hasilnya sesuai dengan modul.
 5. melakukan pengujian struktur, pengiriman, dan tampilan, semuanya sudah sesuai.
 6. membuat file baru dengan nama style.css, untuk memisahkan CSS dari dokumen HTML. memindahkan CSS Internal dan Menghubungkan style.css dengan index.html.
+7. menambahkan box model pada halaman style.css. menambahkan box model pada section#home.
