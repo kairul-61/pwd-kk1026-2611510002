@@ -282,6 +282,72 @@ switch ($programStudi) {
 
 		<section id="pendaftaran-seminar">
 			<h2>Pendaftaran Seminar Teknologi</h2>
+
+			<form id="formSeminar" action="#" method="post">
+
+				<div class="form-group">
+					<label for="nama-peserta">Nama Peserta</label><br>
+					<input
+						class="input-form"
+						type="text"
+						id="nama-peserta"
+						name="nama_peserta"
+						placeholder="Masukkan nama lengkap"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="nim">NIM</label><br>
+					<input
+						class="input-form"
+						type="text"
+						id="nim"
+						name="nim"
+						placeholder="Masukkan NIM"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="program-studi">Program Studi</label><br>
+					<input
+						class="input-form"
+						type="text"
+						id="program-studi"
+						name="program_studi"
+						placeholder="Masukkan Program Studi"
+						required>
+				</div>
+
+				<div class="form-group">
+					<label for="pilihan-seminar">Pilihan Seminar</label><br>
+					<select
+						class="input-form"
+						id="pilihan-seminar"
+						name="pilihan_seminar"
+						required>
+						<option value="">-- Pilih Seminar --</option>
+						<option value="Artificial Intelligence">Artificial Intelligence</option>
+						<option value="Web Development">Web Development</option>
+						<option value="Cyber Security">Cyber Security</option>
+						<option value="Data Analytics">Data Analytics</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="alasan">Alasan Mengikuti Seminar</label><br>
+					<textarea
+						class="input-form"
+						id="alasan"
+						name="alasan"
+						maxlength="300"
+						placeholder="Tuliskan alasan mengikuti seminar"
+						required></textarea>
+				</div>
+
+				<button type="submit">Kirim</button>
+				<button type="reset">Batal</button>
+
+			</form>
 		</section>
 	</main>
 
