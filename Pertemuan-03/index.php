@@ -4,11 +4,11 @@ $nama = "Jonathan";
 // ini untuk penulisan konstanta
 const phi = 3.14;
 /*
-true atau false = tipe data boolean
-null = tanpa isi (ketiadaan)
-123 = tipe data angka (int)
-"teks" = tipe data string
-3.14 = tipe data decimal
+  true atau false = tipe data boolean
+  null = tanpa isi (ketiadaan)
+  123 = tipe data angka (int)
+  "teks" = tipe data string
+  3.14 = tipe data decimal
 */
 $paras = TRUE;
 ?>
@@ -64,7 +64,7 @@ $paras = TRUE;
 
       <article>
         <h3>Profil Singkat</h3>
-        <p>Saya mahasiswa Program Studi Sistem Informasi.</p>
+        <p>Saya mahasiswa Program Studi Teknik Informatika.</p>
 
         <h3>Target Belajar</h3>
 
