@@ -107,6 +107,7 @@ switch ($programStudi) {
 				<li><a href="#home">Beranda</a></li>
 				<li><a href="#about">Tentang</a></li>
 				<li><a href="#contact">Kontak</a></li>
+				<li><a href="#pendaftaran-seminar">Pendaftaran Seminar</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -277,6 +278,10 @@ switch ($programStudi) {
 					<p><strong>Pesan:</strong> <?= nl2br(htmlspecialchars($_SESSION["pesan"] ?? "", ENT_QUOTES, "UTF-8")) ?></p>
 				</article>
 			<?php endif; ?>
+		</section>
+
+		<section id="pendaftaran-seminar">
+			<h2>Section baru</h2>
 		</section>
 	</main>
 
