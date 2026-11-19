@@ -10,7 +10,35 @@ const phi = 3.14;
   "teks" = tipe data string
   3.14 = tipe data decimal
 */
-$paras = TRUE;
+$paras = FALSE;
+$semester = 2;
+
+switch ($semester) {
+  case 1:
+    $semesterku = "Saya baru mulai belajar";
+    $pacarku = "Si A";
+    break;
+  case 2:
+    $semesterku = "Saya sudah mulai agak bisa";
+    $pacarku = "Si B";
+    break;
+  case 3:
+    $semesterku = "Saya sudah mulai nakal";
+    $pacarku = "Si C";
+    break;
+  case 4:
+    $semesterku = "Saya sudah mulai menyesal";
+    $pacarku = "Si D";
+    break;
+  case 5:
+    $semesterku = "Saya sudah mulai mengejar nilai";
+    $pacarku = "Si E";
+    break;
+  default:
+    $semesterku = "Saya sudah tobat";
+    $pacarku = "Tidak ada";
+    break;
+}
 ?>
 
 <!doctype html>
@@ -65,6 +93,12 @@ $paras = TRUE;
       <article>
         <h3>Profil Singkat</h3>
         <p>Saya mahasiswa Program Studi Teknik Informatika.</p>
+        <?php
+        if ($paras == TRUE):
+          echo "<p>Saya berwajah tampan (calon perwira).</p>";
+        endif;
+        ?>
+        <p>Semester <?php echo $semester ?> (<?= $semesterku ?>). Pacarku <?= $pacarku ?></p>
 
         <h3>Target Belajar</h3>
 
