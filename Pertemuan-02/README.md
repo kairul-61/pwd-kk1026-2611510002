@@ -11,3 +11,4 @@ pada pertemuan ke-2, saya :
 7. menambahkan box model pada halaman style.css. menambahkan box model pada section#home. menata Header, Section, Formulir, dan Footer.
 8. menambahkan CSS Flexbox untuk navigasi. menjadikan nav ul sebagai flex container. menambahkan arah susunan dengan flex-direction. menambahkan perataan dengan justify-content dan align-items. menerapkan flexbox pada navigasi.
 9. menambahkan CSS Grid untuk tata letak utama. membuat tata letak satu kolom. membuat tata letak dua kolom. mengatur jarak antar elemen dengan gap. menempatkan contact pada lebar penuh dengan grid-column.
+10. menerapkan Breakpoint dan Media Query dengan Pendekatan Mobile-First. menyesuaikan navigasi dan contact pada viewport lebih lebar.
