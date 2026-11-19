@@ -1,35 +1,75 @@
 <?php
 session_start();
 
-// P7: Memproses data formulir dan menyimpannya ke dalam session.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-	$nama = trim((string) ($_POST["nama"] ?? ""));
-	$email = trim((string) ($_POST["email"] ?? ""));
-	$semesterForm = trim((string) ($_POST["semester"] ?? ""));
-	$tanggal = trim((string) ($_POST["tanggal"] ?? ""));
-	$jenisPesan = trim((string) ($_POST["jenis_pesan"] ?? ""));
-	$minat = $_POST["minat"] ?? [];
-	$prodi = trim((string) ($_POST["prodi"] ?? ""));
-	$pesan = trim((string) ($_POST["pesan"] ?? ""));
 
-	// Checkbox dapat mengirimkan lebih dari satu nilai.
-	if (!is_array($minat)) {
-		$minat = [];
+	// Memeriksa jenis formulir yang dikirim.
+	if (($_POST["form_type"] ?? "") === "seminar") {
+
+		// Mengambil data dari formulir Seminar.
+		$namaPeserta = trim($_POST["nama_peserta"] ?? "");
+		$nimPeserta = trim($_POST["nim"] ?? "");
+		$prodiPeserta = trim($_POST["program_studi"] ?? "");
+		$pilihanSeminar = trim($_POST["pilihan_seminar"] ?? "");
+		$alasan = trim($_POST["alasan"] ?? "");
+
+		// Validasi data.
+		$daftarSeminar = [
+			"Artificial Intelligence",
+			"Web Development",
+			"Cyber Security",
+			"Data Analytics"
+		];
+
+		if (
+			$namaPeserta === "" ||
+			$nimPeserta === "" ||
+			$prodiPeserta === "" ||
+			$pilihanSeminar === "" ||
+			$alasan === "" ||
+			!in_array($pilihanSeminar, $daftarSeminar, true)
+		) {
+			$_SESSION["seminar_error"] = "Semua kolom wajib diisi dan pilihan seminar harus sesuai.";
+			header("Location: index.php#pendaftaran-seminar");
+			exit;
+		}
+
+		// Menyimpan data pendaftaran Seminar ke SESSION.
+		$_SESSION["seminar_nama"] = $namaPeserta;
+		$_SESSION["seminar_nim"] = $nimPeserta;
+		$_SESSION["seminar_prodi"] = $prodiPeserta;
+		$_SESSION["seminar_pilihan"] = $pilihanSeminar;
+		$_SESSION["seminar_alasan"] = $alasan;
+	} else {
+
+		// Memproses data formulir Kontak.
+		$nama = trim((string) ($_POST["nama"] ?? ""));
+		$email = trim((string) ($_POST["email"] ?? ""));
+		$semesterForm = trim((string) ($_POST["semester"] ?? ""));
+		$tanggal = trim((string) ($_POST["tanggal"] ?? ""));
+		$jenisPesan = trim((string) ($_POST["jenis_pesan"] ?? ""));
+		$minat = $_POST["minat"] ?? [];
+		$prodi = trim((string) ($_POST["prodi"] ?? ""));
+		$pesan = trim((string) ($_POST["pesan"] ?? ""));
+
+		if (!is_array($minat)) {
+			$minat = [];
+		}
+
+		// Menyimpan data Kontak ke SESSION.
+		$_SESSION["nama"] = $nama;
+		$_SESSION["email"] = $email;
+		$_SESSION["semester"] = $semesterForm;
+		$_SESSION["tanggal"] = $tanggal;
+		$_SESSION["jenis_pesan"] = $jenisPesan;
+		$_SESSION["minat"] = $minat;
+		$_SESSION["prodi"] = $prodi;
+		$_SESSION["pesan"] = $pesan;
+
+		// Redirect setelah formulir Kontak dikirim.
+		header("Location: index.php#contact");
+		exit;
 	}
-
-	// Menyimpan setiap nilai formulir ke dalam session secara terpisah.
-	$_SESSION["nama"] = $nama;
-	$_SESSION["email"] = $email;
-	$_SESSION["semester"] = $semesterForm;
-	$_SESSION["tanggal"] = $tanggal;
-	$_SESSION["jenis_pesan"] = $jenisPesan;
-	$_SESSION["minat"] = $minat;
-	$_SESSION["prodi"] = $prodi;
-	$_SESSION["pesan"] = $pesan;
-
-	// PRG: mencegah pengiriman POST berulang ketika halaman dimuat ulang.
-	header("Location: index.php#contact");
-	exit;
 }
 
 // Mengamankan data sebelum ditampilkan kembali ke halaman HTML.
@@ -283,7 +323,8 @@ switch ($programStudi) {
 		<section id="pendaftaran-seminar">
 			<h2>Pendaftaran Seminar Teknologi</h2>
 
-			<form id="formSeminar" action="#" method="post">
+			<form id="formSeminar" action="index.php" method="post">
+				<input type="hidden" name="form_type" value="seminar">
 
 				<div class="form-group">
 					<label for="nama-peserta">Nama Peserta</label><br>
@@ -348,6 +389,38 @@ switch ($programStudi) {
 				<button type="reset">Batal</button>
 
 			</form>
+			<?php if (isset($_SESSION["seminar_nama"])): ?>
+				<article class="submission-result">
+					<h3>Pendaftaran Berhasil!</h3>
+
+					<h4>Data Pendaftaran Seminar</h4>
+
+					<p>
+						<strong>Nama Peserta:</strong>
+						<?= htmlspecialchars($_SESSION["seminar_nama"], ENT_QUOTES, "UTF-8") ?>
+					</p>
+
+					<p>
+						<strong>NIM:</strong>
+						<?= htmlspecialchars($_SESSION["seminar_nim"], ENT_QUOTES, "UTF-8") ?>
+					</p>
+
+					<p>
+						<strong>Program Studi:</strong>
+						<?= htmlspecialchars($_SESSION["seminar_prodi"], ENT_QUOTES, "UTF-8") ?>
+					</p>
+
+					<p>
+						<strong>Pilihan Seminar:</strong>
+						<?= htmlspecialchars($_SESSION["seminar_pilihan"], ENT_QUOTES, "UTF-8") ?>
+					</p>
+
+					<p>
+						<strong>Alasan Mengikuti Seminar:</strong>
+						<?= htmlspecialchars($_SESSION["seminar_alasan"], ENT_QUOTES, "UTF-8") ?>
+					</p>
+				</article>
+			<?php endif; ?>
 		</section>
 	</main>
 
