@@ -2,4 +2,4 @@
 
 pada UTS, saya melakukan:
 
-1.
+1. Menyalin artefak dasar UTS.
