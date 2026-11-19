@@ -281,7 +281,7 @@ switch ($programStudi) {
 		</section>
 
 		<section id="pendaftaran-seminar">
-			<h2>Section baru</h2>
+			<h2>Pendaftaran Seminar Teknologi</h2>
 		</section>
 	</main>
 
